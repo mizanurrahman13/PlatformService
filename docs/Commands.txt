@@ -1,8 +1,22 @@
+Create Project with CLI: dotnet new webapi -n PlatformService --framework net8.0
+dotnet new webapi -n CommandsService --framework net8.0
+
+
+
 Build Docker Image: docker build -t <your docker hub id>mizanr/platformservice .
 
 Run Image: docker run -p 8080:80 -d mizanr/platformservice
 
 Push Image Into Docker Hub: docker push mizanr/platformservice
 
-Stop Image: docker stop <Image Id>
+Stop Image Container: docker stop <Image Id>
+
+Kubernetes Commands:
+Create Deployment: kubectl apply -f platforms-depl.yaml
+
+Get Delpoyments or Pods: kubectl get Deployments/Pods
+
+Delete Deployment: kubectl delete deployment platforms-depl
+
+Get Services: kubectl get services
 
