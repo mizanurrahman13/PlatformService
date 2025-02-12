@@ -1,0 +1,8 @@
+Build Docker Image: docker build -t <your docker hub id>mizanr/platformservice .
+
+Run Image: docker run -p 8080:80 -d mizanr/platformservice
+
+Push Image Into Docker Hub: docker push mizanr/platformservice
+
+Stop Image: docker stop <Image Id>
+
