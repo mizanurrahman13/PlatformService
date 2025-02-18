@@ -20,3 +20,12 @@ Delete Deployment: kubectl delete deployment platforms-depl
 
 Get Services: kubectl get services
 
+ReStart Deployment: kubectl rollout restart deployments platforms-depl
+
+Kubernetes NameSpaces: kubectl get namespace
+
+Switch to particular NameSpace: kubectl get pods --namespace=ingress-nginx
+
+Register acme.com inot hots file: windows->sysem32->drivers->etc->first host file(C:\Windows\System32\drivers\etc)
+
+Create Secrete for mssql: kubectl create secret generic mssql --from-literal=SA_PASSWORD="PassRifat!"

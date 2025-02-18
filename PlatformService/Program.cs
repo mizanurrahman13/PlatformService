@@ -1,12 +1,24 @@
 using Microsoft.EntityFrameworkCore;
+using PlatformService.Config;
 using PlatformService.Data;
 using PlatformService.SyncDataServices.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<AppDbContext>(opt => 
-    opt.UseInMemoryDatabase("InMem"));
+builder.Services.Configure<ServiceUrls>(builder.Configuration.GetSection("ServiceUrls"));
+if (builder.Environment.IsDevelopment())
+{
+    Console.WriteLine("---> Using InMem Db");
+    builder.Services.AddDbContext<AppDbContext>(opt => 
+        opt.UseInMemoryDatabase("InMem"));
+}
+else
+{
+    Console.WriteLine("---> Using SqlServer Db");
+    builder.Services.AddDbContext<AppDbContext>(opt => 
+        opt.UseSqlServer(builder.Configuration.GetConnectionString("PlatformsConn")));
+}
 
 builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
 builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
@@ -49,7 +61,7 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
-SeedDb.SeedPopulation(app);
+SeedDb.SeedPopulation(app, app.Environment.IsProduction());
 
 app.Run();
 

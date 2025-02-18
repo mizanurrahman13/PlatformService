@@ -14,6 +14,6 @@ FROM build AS final
 WORKDIR /app
 COPY --from=publish /app .
 ENV ASPNETCORE_URLS=http://+:80
-ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_ENVIRONMENT=Production
 EXPOSE 80
 ENTRYPOINT ["dotnet", "CommandsService.dll"]
