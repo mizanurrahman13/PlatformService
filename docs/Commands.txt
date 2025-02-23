@@ -22,6 +22,8 @@ Get Services: kubectl get services
 
 ReStart Deployment: kubectl rollout restart deployments platforms-depl
 
+Ingress-NgInx: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.0/deploy/static/provider/cloud/deploy.yaml
+
 Kubernetes NameSpaces: kubectl get namespace
 
 Switch to particular NameSpace: kubectl get pods --namespace=ingress-nginx
