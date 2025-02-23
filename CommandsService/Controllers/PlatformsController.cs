@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using AutoMapper;
 using CommandsService.Data;
 using CommandsService.Dtos;
@@ -22,7 +21,7 @@ public class PlatformsController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<PlatformReadDto>> GetPlatforms()
     {
-        Console.WriteLine("---> Getting Platforms form CommandsService");
+        Console.WriteLine("---> Getting Platforms from CommandsService");
 
         var platformItems = _commandRepository.GetAllPlatforms();
 

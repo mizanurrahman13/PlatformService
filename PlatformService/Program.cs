@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PlatformService.AsyncDataServices;
 using PlatformService.Config;
 using PlatformService.Data;
+using PlatformService.SyncDataServices;
 using PlatformService.SyncDataServices.Http;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,7 @@ else
 builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
 builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
 builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
+builder.Services.AddGrpc();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
@@ -47,6 +49,12 @@ var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
+
+app.MapGrpcService<GrpcPlatformService>();
+app.MapGet("/protos/platforms.proto", async context =>
+    {
+        await context.Response.WriteAsync(File.ReadAllText("Protos/platforms.proto"));
+    });
 
 app.MapGet("/weatherforecast", () =>
 {
