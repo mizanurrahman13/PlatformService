@@ -1,6 +1,6 @@
-# Microservices(PlatformService) API with .NET 8, Asynchronous inter-service communication(RabbitMQ), Publishing messages(MassTransit), Docker, Kubernetes, Repository, Grpc, EFCore and MSSQL.
+# Microservices(PlatformService) API with .NET 8, Asynchronous inter-service communication(RabbitMQ), Publishing messages(MassTransit), Docker, Kubernetes, Repository, gRPC, EFCore and MSSQL.
 
-The Project covers database storage with MSSQL, implementing repository patterns, using Docker and Kubernetes for containerization, and configuring dependency injection. It also addresses microservice preparation, synchronous and asynchronous inter-service communication, leveraging tools like Postman, IHttpClientFactory, MassTransit, Grpc for Http2/TLS communication and RabbitMQ, with a focus on code reuse and Docker Compose.
+The Project covers database storage with MSSQL, implementing repository patterns, using Docker and Kubernetes for containerization, and configuring dependency injection. It also addresses microservice preparation, synchronous and asynchronous inter-service communication, leveraging tools like Postman, IHttpClientFactory, MassTransit, gRPC for Http2/TLS communication and RabbitMQ, with a focus on code reuse and Docker Compose.
 
 ## Table of Contents
 
